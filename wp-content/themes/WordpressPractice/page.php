@@ -24,12 +24,13 @@
    			<div class="px-5 ">
    				<div class="page-title ">
    					<h1> <?php the_title() ?> </h1>
-            
    				</div>
    			</div>
    		</section>
    		<div class="main-content">
         <div class="container">
+          <!-- this is by using img tag and this is for feature image line number 33 and 34-39 have same function
+        \that is to show featured image on website -->
           <?php the_post_thumbnail('large'); ?>
           <?php the_content(); ?>
           <?php $imagepath = wp_get_attachment_image_src(get_post_thumbnail_id(),'medium');

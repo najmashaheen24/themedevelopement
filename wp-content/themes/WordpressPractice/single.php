@@ -1,5 +1,6 @@
 <?php
 	get_header();
+    the_post();
 ?>
 <section class="social-links ">
    <div class="px-5 ">
@@ -25,29 +26,16 @@
 </section>
 	<section>
 		<div class="container">
-			<h1 class="center magenda-color mt-4">OUR POSTS</h1>
-			<div class="row">
-			<?php 
-			while(have_posts()) {
-				the_post();
-				$imagepath= wp_get_attachment_image_src(get_post_thumbnail_id(), 'medium');
-			?>
-				<div class="col-md-4">
-					<div class="post-box mb-5 ">
-						<img src="<?php echo $imagepath[0] ?>" alt="" class="img-fluid">
-						<div class="post-details pt-1 pb-5">
-							<h2 class="post-title"><?php the_title(); ?></h2>
-							<p class="mb-0 "> <?php echo get_the_excerpt(); ?></p>
-							<p class="mb-0 magenda-color"> <?php echo get_the_date(); ?></p> 
-							<p class="mb-4 magenda-color">Author Name: <?php echo get_the_author(); ?> </p>
-							<a href="<?php the_permalink(); ?>" class="post-detail"><span class="me-2">Read More</span><i class="fas fa-arrow-right"></i></a>
-						</div>
-					</div>
-				</div>
-			<?php } ?>
-			<?php wp_pagenavi(); ?>
-			</div>
-			
+            <div class="mt-4 mb-5">
+               <a href="<?php the_permalink(48) ?>"> <h2 class="magenda-color"><?php the_title(); ?></h2></a>
+                <p><?php $imagepath = wp_get_attachment_image_src(get_post_thumbnail_id(),'medium') ?>
+                    <img src="<?php echo $imagepath[0] ?>" alt="" 
+                    style="width: 800px; height:500px">
+                </p>
+                <p class="mt-3 mb-0 magenda-color"><?php echo get_the_date(); ?></p>
+                <p class=" magenda-color">Author Name: <?php echo get_the_author(); ?></p>
+                <p class="mt-2 mb-0 magenda-color"><?php the_content(); ?></p>
+            </div>
 		</div>
 	</section>
     
